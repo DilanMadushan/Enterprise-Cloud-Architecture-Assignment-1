@@ -1,52 +1,33 @@
-# Cloud Enabled Deployment In Action with AWS
+# Course Service (Spring Boot + GCP MySQL) 🌐🐬☕️
 
-This repository contains four projects:
+This project is a **Spring Boot application** that manages course data and connects to a **MySQL database** hosted on *Google Cloud SQL*.  
+It follows best practices for cloud-ready development by using **Spring Profiles** to separate configurations for local and cloud environments.
 
-- course-service (Spring Boot + MySQL)
-- student-service (Spring Boot + MongoDB)
-- media-service (Spring Boot + Local file storage, can be extended to S3/MinIO)
-- frontend-app (React + TypeScript)
+With this setup, you can easily switch between development and production, ensuring smooth database connectivity and environment management.
 
-## Backend Services
+---
 
-### 1. course-service
-- Entity: Course(id, name, duration)
-- Endpoints:
-  - GET /courses
-  - GET /courses/{id}
-  - POST /courses
-  - DELETE /courses/{id}
-- Default port: 8081
-- Configure MySQL settings
+## 🎬 Video Demonstration on GCP
+[Watch the demo](https://drive.google.com/file/d/1oCF_GGqyHeFlysvPfsBsTMvMmDnfDTaH/view?usp=sharing)
 
-### 2. student-service
-- Document: Student(registrationNumber, fullName, address, contact, email)
-- Endpoints:
-  - GET /students
-  - GET /students/{id}
-  - POST /students
-  - DELETE /students/{id}
-- Default port: 8082
-- Configure MongoDB settings
+---
 
-### 3. media-service
-- Resource: files
-- Endpoints:
-  - POST /files (multipart/form-data: file)
-  - GET /files (list)
-  - GET /files/{id} (fetch)
-  - DELETE /files/{id} (delete)
-- Default port: 8083
-- Uses local disk storage at `./data/media` by default (override with env var `MEDIA_STORAGE_DIR`).
+## 🔧 Prerequisites
+Before running the project, make sure you have the following installed and configured:
 
-## Frontend (frontend-app)
-- React + TypeScript + MUI + Axios + Vite app with 3 sections: Courses, Students, Media
-- Scripts:
-  - npm run dev (Vite dev server)
-  - npm run build (TypeScript build + Vite build)
-  - npm run preview (Preview built app)
+- ☕ **Java 21 LTS**
+- 🐬 **MySQL** (local or Google Cloud SQL)
+- ☁️ **Google Cloud SQL (MySQL) Instance**
 
-## Build
+---
 
-- Backend: run `mvn -q -e -DskipTests package` at repo root to build services.
-- Frontend: run `npm install` then `npm run dev` inside `frontend-app`.
+## 🗄 Database Setup
+
+### ☁️ Cloud Configuration (`application-gcp.properties`)
+
+Replace the placeholders with your own database credentials:
+
+```properties
+spring.datasource.url=jdbc:mysql://<PUBLIC_GCP_IP>:3306/<DB_NAME>?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=<GCP_MYSQL_USERNAME>
+spring.datasource.password=<GCP_MYSQL_PASSWORD>
