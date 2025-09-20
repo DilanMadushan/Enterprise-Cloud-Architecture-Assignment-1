@@ -7,6 +7,14 @@ With this setup, you can easily switch between development and production, ensur
 
 ---
 
+## 👤 Personal Details
+
+- **Name**: Dilan Madushanka Fernando
+- **Batch**: Panadura
+- **Student ID**: 2301671122
+
+---
+
 ## 🎬 Video Demonstration on GCP
 [Watch the demo](https://drive.google.com/file/d/1oCF_GGqyHeFlysvPfsBsTMvMmDnfDTaH/view?usp=sharing)
 
